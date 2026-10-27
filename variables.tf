@@ -11,6 +11,10 @@ Optional:
         - additional_recipients (optional)
         - body (optional)
         - language (optional)
+    - timeouts (block):
+        - create (optional)
+        - delete (optional)
+        - read (optional)
 EOT
 
   type = map(object({
@@ -22,6 +26,11 @@ EOT
       additional_recipients = optional(list(string))
       body                  = optional(string)
       language              = optional(string)
+    }))
+    timeouts = optional(object({
+      create = optional(string)
+      delete = optional(string)
+      read   = optional(string)
     }))
   }))
   validation {
